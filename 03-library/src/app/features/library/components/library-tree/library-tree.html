@@ -12,6 +12,8 @@
     <cdk-tree-node
       *cdkTreeNodeDef="let node"
       class="tree-node"
+      [appHighlightOnHover]="'#f1f5f9'"
+      [highlightScale]="1.05"
       [style.--level]="node.level"
       role="treeitem"
       (click)="onNodeClick(node)"
@@ -27,6 +29,7 @@
     <cdk-tree-node
       *cdkTreeNodeDef="let node; when: hasChild"
       class="tree-node expandable"
+      appHighlightOnHover
       [style.--level]="node.level"
       [isExpandable]="true"
       cdkTreeNodeToggle

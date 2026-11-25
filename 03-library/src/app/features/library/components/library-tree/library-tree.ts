@@ -5,10 +5,11 @@ import { Subject, takeUntil } from 'rxjs';
 import { LibraryApi } from '../../../../core/services/library-api';
 import { FlatNode, toFlatNode } from './flat-node';
 import { LibraryTreeDataSource } from './library-tree-data-source';
+import { HighlightOnHover } from '../../../../shared/directives/highlight-on-hover';
 
 @Component({
   selector: 'app-library-tree',
-  imports: [CdkTreeModule, ScrollingModule],
+  imports: [CdkTreeModule, ScrollingModule, HighlightOnHover],
   templateUrl: './library-tree.html',
   styleUrl: './library-tree.scss',
 })
