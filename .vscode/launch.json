@@ -1,0 +1,47 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Library: serve + debug (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "ng serve (03-library)",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/03-library",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:/*": "${webRoot}/*",
+        "webpack:///./~/*": "${webRoot}/node_modules/*"
+      },
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/03-library/**",
+        "!**/node_modules/**"
+      ]
+    },
+    {
+      "name": "Library: attach to Chrome",
+      "type": "chrome",
+      "request": "attach",
+      "port": 9222,
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/03-library",
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/03-library/**",
+        "!**/node_modules/**"
+      ]
+    },
+    {
+      "name": "Library: debug tests",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:9876/debug.html",
+      "webRoot": "${workspaceFolder}/03-library",
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/03-library/**",
+        "!**/node_modules/**"
+      ]
+    }
+  ]
+}

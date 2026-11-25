@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ng serve (03-library)",
+      "type": "shell",
+      "command": "ng serve",
+      "options": {
+        "cwd": "${workspaceFolder}/03-library"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Building",
+          "endsPattern": "(Compiled successfully|compiled successfully|Application bundle generation complete)"
+        }
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "ng test (03-library)",
+      "type": "shell",
+      "command": "ng test",
+      "options": {
+        "cwd": "${workspaceFolder}/03-library"
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}
