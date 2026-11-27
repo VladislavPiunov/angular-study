@@ -1,0 +1,9 @@
+<div class="layout">
+  <aside class="sidebar">
+    <h2>Каталог</h2>
+    <app-library-tree (bookSelected)="openBook($event)" />
+  </aside>
+  <main class="content">
+    <router-outlet />
+  </main>
+</div>

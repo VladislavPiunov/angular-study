@@ -1,0 +1,51 @@
+<cdk-virtual-scroll-viewport
+  itemSize="40"
+  minBufferPx="400"
+  maxBufferPx="800"
+  class="tree-viewport"
+>
+  <cdk-tree
+    [dataSource]="dataSource"
+    [levelAccessor]="levelAccessor"
+    [trackBy]="trackBy"
+  >
+    <cdk-tree-node
+      *cdkTreeNodeDef="let node"
+      class="tree-node"
+      [appHighlightOnHover]="'#f1f5f9'"
+      [highlightScale]="1.05"
+      [style.--level]="node.level"
+      role="treeitem"
+      (click)="onNodeClick(node)"
+    >
+      <span class="toggle-spacer"></span>
+      <span class="icon">📖</span>
+      <span class="title">{{ node.title }}</span>
+      @if (node.author) {
+        <span class="author">{{ node.author }}</span>
+      }
+    </cdk-tree-node>
+
+    <cdk-tree-node
+      *cdkTreeNodeDef="let node; when: hasChild"
+      class="tree-node expandable"
+      appHighlightOnHover
+      [style.--level]="node.level"
+      [isExpandable]="true"
+      cdkTreeNodeToggle
+      role="treeitem"
+      [attr.aria-expanded]="node.expanded"
+      (expandedChange)="onExpandedChange($event, node)"
+    >
+      <span class="toggle">
+        @if (node.isLoading) {
+          <span class="spinner"></span>
+        } @else {
+          {{ node.expanded ? '▾' : '▸' }}
+        }
+      </span>
+      <span class="icon">📁</span>
+      <span class="title">{{ node.title }}</span>
+    </cdk-tree-node>
+  </cdk-tree>
+</cdk-virtual-scroll-viewport>
